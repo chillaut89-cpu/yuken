@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>株式会社テクノブリッジ - コーポレートサイト</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+        
+        .nav {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: opacity 0.3s;
+        }
+        
+        .nav a:hover {
+            opacity: 0.7;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+            color: #fff;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+        
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.05em;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+        
+        .hero-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: #e94560;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .hero-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(233, 69, 96, 0.3);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #1a1a2e;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+        
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .service-card {
+            background: #fff;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid #e94560;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #e94560 0%, #d63651 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .service-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1a1a2e;
+        }
+        
+        .service-desc {
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        .stats-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #e94560;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            color: #666;
+        }
+        
+        .company-info {
+            background: #fff;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+        
+        .info-table {
+            width: 100%;
+        }
+        
+        .info-table tr {
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .info-table tr:last-child {
+            border-bottom: none;
+        }
+        
+        .info-table th,
+        .info-table td {
+            padding: 1.2rem 0;
+            text-align: left;
+        }
+        
+        .info-table th {
+            font-weight: 600;
+            color: #1a1a2e;
+            width: 200px;
+        }
+        
+        .info-table td {
+            color: #666;
+        }
+        
+        .footer {
+            background: #1a1a2e;
+            color: #fff;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+        
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-nav a {
+            color: #fff;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        
+        .footer-nav a:hover {
+            opacity: 1;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 0.8rem 2rem;
+            background: #e94560;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: background 0.3s;
+        }
+        
+        .back-link:hover {
+            background: #d63651;
+        }
+        
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .service-grid,
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .info-table th,
+            .info-table td {
+                display: block;
+                width: 100%;
+            }
+            
+            .info-table th {
+                padding-bottom: 0.5rem;
+                font-weight: 700;
+            }
+            
+            .info-table td {
+                padding-top: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">TechnoBridge</div>
+            <nav class="nav">
+                <a href="#service">事業内容</a>
+                <a href="#company">会社概要</a>
+                <a href="#contact">お問い合わせ</a>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <h1 class="hero-title">テクノロジーで<br>ビジネスを加速する</h1>
+        <p class="hero-subtitle">革新的なITソリューションで、企業の成長を支援します</p>
+        <a href="#contact" class="hero-button">お問い合わせ</a>
+    </section>
+    
+    <main>
+        <section class="section" id="service">
+            <div class="container">
+                <h2 class="section-title">事業内容</h2>
+                <p class="section-subtitle">Service</p>
+                
+                <div class="service-grid">
+                    <div class="service-card">
+                        <div class="service-icon">💻</div>
+                        <h3 class="service-title">システム開発</h3>
+                        <p class="service-desc">
+                            業務効率化を実現するカスタムシステムの開発。
+                            お客様のニーズに合わせた最適なソリューションを提供します。
+                        </p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">📱</div>
+                        <h3 class="service-title">アプリケーション開発</h3>
+                        <p class="service-desc">
+                            iOS/Android対応のモバイルアプリ開発。
+                            ユーザー体験を重視した設計で、高品質なアプリを提供します。
+                        </p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">☁️</div>
+                        <h3 class="service-title">クラウド導入支援</h3>
+                        <p class="service-desc">
+                            AWS、Azure、GCPなどのクラウドサービスの導入・運用支援。
+                            コスト削減とパフォーマンス向上を実現します。
+                        </p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">🔒</div>
+                        <h3 class="service-title">セキュリティ対策</h3>
+                        <p class="service-desc">
+                            情報セキュリティ対策の構築・運用。
+                            最新の脅威に対応した堅牢なシステムを構築します。
+                        </p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">📊</div>
+                        <h3 class="service-title">データ分析</h3>
+                        <p class="service-desc">
+                            ビッグデータの収集・分析による経営意思決定支援。
+                            AIを活用した高度な分析サービスを提供します。
+                        </p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">🎓</div>
+                        <h3 class="service-title">IT研修・教育</h3>
+                        <p class="service-desc">
+                            社員のITスキル向上を支援する研修プログラム。
+                            実践的なカリキュラムで即戦力を育成します。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section stats-section">
+            <div class="container">
+                <h2 class="section-title">実績</h2>
+                <p class="section-subtitle">Achievement</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">創業年数</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">プロジェクト実績</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">200+</div>
+                        <div class="stat-label">取引企業数</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">顧客満足度</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section" id="company">
+            <div class="container">
+                <h2 class="section-title">会社概要</h2>
+                <p class="section-subtitle">Company</p>
+                
+                <div class="company-info">
+                    <table class="info-table">
+                        <tr>
+                            <th>会社名</th>
+                            <td>株式会社テクノブリッジ</td>
+                        </tr>
+                        <tr>
+                            <th>設立</th>
+                            <td>2009年4月1日</td>
+                        </tr>
+                        <tr>
+                            <th>代表取締役</th>
+                            <td>山田 太郎</td>
+                        </tr>
+                        <tr>
+                            <th>資本金</th>
+                            <td>5,000万円</td>
+                        </tr>
+                        <tr>
+                            <th>従業員数</th>
+                            <td>120名</td>
+                        </tr>
+                        <tr>
+                            <th>所在地</th>
+                            <td>
+                                〒100-0001<br>
+                                東京都千代田区千代田1-1-1<br>
+                                テクノビル10階
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>事業内容</th>
+                            <td>
+                                システム開発、アプリケーション開発、<br>
+                                クラウド導入支援、セキュリティ対策、<br>
+                                データ分析、IT研修・教育
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section" id="contact" style="background: #f8f9fa;">
+            <div class="container">
+                <h2 class="section-title">お問い合わせ</h2>
+                <p class="section-subtitle">Contact</p>
+                
+                <div class="company-info" style="text-align: center;">
+                    <p style="font-size: 1.1rem; margin-bottom: 1.5rem; color: #666;">
+                        サービスに関するご質問・ご相談など、<br>
+                        お気軽にお問い合わせください。
+                    </p>
+                    <p style="font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem;">
+                        📞 03-1234-5678
+                    </p>
+                    <p style="color: #666; margin-bottom: 1.5rem;">
+                        受付時間：平日 9:00 - 18:00
+                    </p>
+                    <p style="font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem;">
+                        📧 info@technobridge.co.jp
+                    </p>
+                </div>
+                
+                <div style="text-align: center;">
+                    <a href="index.html#samples" class="back-link">← トップページに戻る</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="footer">
+        <div class="footer-nav">
+            <a href="#service">事業内容</a>
+            <a href="#company">会社概要</a>
+            <a href="#contact">お問い合わせ</a>
+        </div>
+        <p>&copy; 2026 TechnoBridge Co., Ltd. All rights reserved.</p>
+    </footer>
+</body>
+</html>
