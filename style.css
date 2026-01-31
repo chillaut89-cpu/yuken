@@ -576,11 +576,32 @@ ul, ol {
     overflow: hidden;
     transition: var(--transition);
     border: 1px solid var(--color-border);
+    display: block;
+    text-decoration: none;
+    color: inherit;
 }
 
 .sample-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* サンプル表示リンク */
+.sample-view-link {
+    margin-top: 1rem;
+    padding: 0.6rem 1.2rem;
+    background: linear-gradient(135deg, var(--color-accent) 0%, #c89860 100%);
+    color: var(--color-white);
+    text-align: center;
+    border-radius: 25px;
+    font-size: var(--font-sm);
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.sample-card:hover .sample-view-link {
+    background: linear-gradient(135deg, #c89860 0%, var(--color-accent) 100%);
+    transform: scale(1.05);
 }
 
 /* サンプル画像エリア */
@@ -1448,6 +1469,81 @@ ul, ol {
 .comparison {
     padding: var(--spacing-xl) 0;
     background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+}
+
+/* 簡潔な比較表（デフォルトは非表示、スマホで表示） */
+.comparison-simple {
+    display: none;
+    max-width: 600px;
+    margin: var(--spacing-lg) auto;
+}
+
+.comparison-simple-title {
+    font-size: var(--font-lg);
+    font-weight: 700;
+    color: var(--color-primary);
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.comparison-simple-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-sm);
+}
+
+.comparison-simple-item {
+    background-color: var(--color-white);
+    padding: var(--spacing-md);
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.comparison-yes {
+    border-left: 4px solid #4caf50;
+}
+
+.comparison-no {
+    border-left: 4px solid #ff9800;
+}
+
+.comparison-simple-label {
+    font-size: var(--font-sm);
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 0.8rem;
+}
+
+.comparison-simple-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.comparison-simple-list li {
+    font-size: var(--font-sm);
+    color: var(--color-text);
+    padding: 0.4rem 0 0.4rem 1.5rem;
+    position: relative;
+    line-height: 1.6;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+}
+
+.comparison-yes .comparison-simple-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #4caf50;
+    font-weight: 700;
+}
+
+.comparison-no .comparison-simple-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #ff9800;
+    font-weight: 700;
 }
 
 .comparison-table-wrapper {
@@ -2657,7 +2753,19 @@ ul, ol {
         padding: 0.3rem 0.6rem;
     }
     
-    /* 比較セクション - スマホでも2列維持 */
+    /* 比較セクション - スマホ用 */
+    
+    /* 簡潔な比較表を表示 */
+    .comparison-simple {
+        display: block !important;
+    }
+    
+    /* PC用の詳細版を非表示 */
+    .pros-cons-wrapper,
+    .recommendation-wrapper {
+        display: none !important;
+    }
+    
     .comparison-table-wrapper {
         overflow-x: scroll;
     }
@@ -2678,12 +2786,6 @@ ul, ol {
     
     .price-highlight {
         font-size: 0.9rem;
-    }
-    
-    .pros-cons-wrapper,
-    .recommendation-wrapper {
-        grid-template-columns: repeat(2, 1fr); /* スマホでも2列維持 */
-        gap: 0.8rem;
     }
     
     .pros-cons-card,
